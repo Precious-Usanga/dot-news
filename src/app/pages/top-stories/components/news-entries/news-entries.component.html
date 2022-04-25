@@ -1,0 +1,76 @@
+<div *ngIf="cardType === 'stretched'" class="bg-card py-4 px-6 rounded shadow-md">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+    <div fxFlex="auto" fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
+      <h3 class="text-base m-0 font-bold">{{ news.title | titlecase}}</h3>
+      <p class="text-secondary font-medium text-sm">
+        {{ news.description }}
+      </p>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+        <div fxFlex="auto" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" class="text-hint text-xs">
+          <span>
+            {{ news.source.name| titlecase}}
+          </span>
+          <span>
+            {{ news.publishedAt | date }}
+          </span>
+        </div>
+        <div fxFlex="auto" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+          <button mat-button color="primary" matRipple>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+              <mat-icon [icIcon]="icShare" class="block"></mat-icon>
+              <span class="font-medium">Share</span>
+            </div>
+          </button>
+          <button mat-button color="primary" (click)="addToBookmarks(news)" matRipple>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+              <mat-icon [icIcon]="icAddBookmark" class="block"></mat-icon>
+              <span class="font-medium">Read Later</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="20%">
+      <img [src]="news.urlToImage" class="w-full" alt="">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="cardType === 'boxed'" class="bg-card py-4 px-6 w-full max-w-[370px] rounded shadow-md">
+  <div fxLayout="row" class="w-full" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex="70%" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5px">
+      <h3 class="text-base m-0 font-bold">{{ news.title | titlecase}}</h3>
+      <p class="text-secondary text-sm">
+        {{ news.description }}
+      </p>
+    </div>
+    <div fxFlex="30%" *ngIf="news.urlToImage" fxFlexAlign="start">
+      <img [src]="news.urlToImage" class="rounded-lg">
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div fxFlex="auto" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+      <span class="text-hint text-xs">
+        {{ news.source.name| titlecase}}
+      </span>
+      <span class="text-hint text-xs">
+        {{ news.publishedAt | date }}
+      </span>
+    </div>
+    <div fxFlex="auto" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+      <button mat-button color="primary">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icShare" class="block"></mat-icon>
+          <span class="text-xs">Share</span>
+        </div>
+      </button>
+      <button mat-button color="primary" (click)="openDialog(addBookmarkModal, {modal: 'addBookmarkModal', action: 'add', extraData: news})">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icAddBookmark" class="block"></mat-icon>
+          <span class="text-xs">Read Later</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

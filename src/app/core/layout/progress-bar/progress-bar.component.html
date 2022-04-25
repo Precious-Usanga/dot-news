@@ -1,0 +1,5 @@
+<mat-progress-bar [class.visible]="loader.useRef('httpclient').value$ | async"
+                  [value]="loader.useRef('httpclient').value$ | async"
+                  class="progress-bar"
+                  mode="determinate"></mat-progress-bar>
+

@@ -1,0 +1,22 @@
+:host {
+  background: var(--toolbar-background);
+  box-sizing: border-box;
+  color: var(--toolbar-color);
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  z-index: var(--toolbar-z-index);
+}
+
+.toolbar {
+  height: var(--toolbar-height);
+}
+
+a {
+  color: var(--toolbar-color);
+  text-decoration: none;
+}
+
+.app-shadow {
+  box-shadow: 0px 4px 4px rgba(232, 232, 232, 0.25);
+}

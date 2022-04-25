@@ -1,0 +1,66 @@
+.dot-news-layout {
+
+  --footer-background: var(--background-base);
+  --sidenav-background: var(--background-base);
+  --toolbar-background: var(--background-base);
+  --sidenav-color: var(--text-color);
+  --sidenav-item-background-active: var(--background-card);
+  --sidenav-item-color: var(--text-color);
+  --sidenav-item-color-active: var(--text-color);
+  --sidenav-item-dropdown-background: var(--background-base);
+
+  --sidenav-item-dropdown-background-hover: var(--background-hover);
+  --secondary-toolbar-background: var(--background-base);
+
+  --sidenav-toolbar-background: var(--background-base);
+
+  --secondary-toolbar-height: 64px;
+
+  --toolbar-width: 100%;
+
+  .sidenav {
+    border: none;
+
+    app-side-nav-item {
+      .item {
+        width: unset;
+        @apply rounded-r-full py-2 mr-4;
+
+        &.active {
+          @apply shadow;
+        }
+      }
+
+      .item-level-0>.item {
+        @apply my-1;
+      }
+
+      .item-level-1 .item.active {
+        @apply shadow-none font-medium;
+
+        .item-label {
+          @apply text-black;
+        }
+      }
+
+      .item-level-1 .item:hover .item-label {
+        @apply text-black;
+      }
+    }
+  }
+
+  .sidenav-collapsed .sidenav app-side-nav-item .item {
+    @apply mx-0;
+  }
+
+  app-footer {
+    @apply rounded-t overflow-hidden;
+  }
+
+  &.dot-news-style {
+    --sidenav-item-background-active: theme('backgroundColor.primary.light');
+    --sidenav-item-color-active: theme('backgroundColor.primary.DEFAULT');
+    --sidenav-item-dropdown-color-hover: var(--text-color);
+    --sidenav-item-icon-color-active: theme('backgroundColor.primary.DEFAULT');
+  }
+}

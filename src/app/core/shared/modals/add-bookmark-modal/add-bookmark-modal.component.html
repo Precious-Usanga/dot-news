@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div fxFlex="auto">
+        <div class="flex flex-row justify-between items-center" mat-dialog-title>
+            <div class="text-bold">
+                <h2 class="title m-0">Add to Bookmarks</h2>
+            </div>
+
+            <button class="text-secondary" mat-dialog-close mat-icon-button type="button"
+                (click)="closeModal({result: { data: '', status: 'closed', message: 'Add Bookmark Modal Closed' } })">
+                <mat-icon [icIcon]="icClose"></mat-icon>
+            </button>
+        </div>
+
+        <mat-divider class="text-border"></mat-divider>
+
+        <form [formGroup]="addToBookmarkForm" (ngSubmit)="addToBookmarkForm.valid && onSubmit(addToBookmarkFormData)">
+            <div class="pt-6 pb-4 flex flex-col justify-center">
+
+              <mat-form-field fxFlex="grow" appearance="outline">
+                <mat-label>Title</mat-label>
+                <textarea formControlName="title" rows="2" matInput readonly required></textarea>
+                <mat-error *ngIf="addToBookmarkFormData['title'].dirty && addToBookmarkFormData['title'].invalid && addToBookmarkFormData['title'].hasError('required')">Title is required</mat-error>
+
+              </mat-form-field>
+
+              <mat-form-field fxFlex="grow" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" rows="3" matInput readonly required></textarea>
+                <mat-error *ngIf="addToBookmarkFormData['description'].dirty && addToBookmarkFormData['description'].invalid && addToBookmarkFormData['description'].hasError('required')">Description is required</mat-error>
+              </mat-form-field>
+
+              <mat-form-field fxFlex="grow" appearance="outline">
+                <mat-label>Url</mat-label>
+                <input type="text" matInput formControlName="url" readonly required>
+                <mat-error *ngIf="addToBookmarkFormData['url'].dirty && addToBookmarkFormData['url'].invalid && addToBookmarkFormData['url'].hasError('required')">Url is required</mat-error>
+              </mat-form-field>
+
+                <div class="flex justify-end items-center">
+                    <ng-container *ngIf="!addingToBookmark">
+                        <button class="mr-3" mat-button type="reset" (click)="clearForm(addToBookmarkForm)">Clear</button>
+                        <button color="primary" [disabled]="!addToBookmarkForm.valid" mat-raised-button type="submit">ADD</button>
+                    </ng-container>
+                    <mat-progress-spinner *ngIf="addingToBookmark" color="primary" mode="indeterminate" diameter='30' strokeWidth='3'></mat-progress-spinner>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div (mouseenter)="onMouseEnter()"
+     (mouseleave)="onMouseLeave()"
+     [class.collapsed]="collapsed"
+     [class.open]="collapsed && (collapsedOpen$ | async)"
+     class="sidenav flex flex-col">
+  <div class="sidenav-toolbar flex-none flex justify-center items-center">
+    <img [src]="imageUrl$ | async" class="h-10 select-none flex-none">
+    <h2 class="text-lg font-bold mt-3 text-[#0768B5] ltr:pl-4 rtl:pr-4 select-none flex-auto">{{ (title$ | async) | titlecase }}</h2>
+  </div>
+
+  <div class="scrollbar flex-auto">
+    <div class="sidenav-items">
+      <app-side-nav-item *ngFor="let item of items"
+                        [item]="item"
+                        [level]="0"></app-side-nav-item>
+    </div>
+  </div>
+</div>

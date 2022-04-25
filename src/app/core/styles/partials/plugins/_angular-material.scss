@@ -1,0 +1,75 @@
+.mat-icon-button .mat-button-wrapper>*,
+.mat-menu-item .mat-icon,
+.mat-button .mat-icon {
+  vertical-align: middle !important;
+}
+
+.mat-form-field-suffix,
+.mat-form-field-prefix {
+  .mat-icon-button .mat-icon {
+    font-size: inherit;
+  }
+}
+
+.mat-form-field {
+  margin-bottom: 4px;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0.8em;
+}
+
+.mat-form-field-subscript-wrapper {
+  top: calc(100% - 1.5em);
+}
+
+.mat-primary.mat-form-field {
+
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
+    transition: var(--trans-ease-out);
+  }
+
+  &.mat-focused .mat-form-field-prefix,
+  &.mat-focused .mat-form-field-suffix {
+    @apply text-primary;
+  }
+}
+
+.mat-form-field.mat-form-field-invalid {
+
+  &.mat-focused .mat-form-field-prefix,
+  &.mat-focused .mat-form-field-suffix {
+    @apply text-red;
+  }
+}
+
+
+.mat-paginator-page-size-select.mat-form-field .mat-form-field-flex {
+  padding-top: 0;
+}
+
+.mat-menu-item ic-icon {
+  margin-inline-end: var(--padding-16);
+  vertical-align: middle;
+
+  >svg {
+    vertical-align: middle;
+  }
+}
+
+.mat-select-panel {
+  @apply text-base;
+}
+
+.mat-drawer-side {
+  border: 0;
+}
+
+textarea.mat-input-element {
+  @apply leading-normal;
+}
+
+.mat-card-image {
+  max-width: none;
+}

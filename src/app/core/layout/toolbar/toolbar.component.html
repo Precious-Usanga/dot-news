@@ -1,0 +1,32 @@
+<div class="toolbar w-full py-2 px-gutter sm:app-shadow" fxLayout="row" fxLayoutAlign="start center">
+  <button (click)="openSidenav()" [fxHide]="!mobileQuery" mat-icon-button type="button">
+    <mat-icon [icIcon]="icMenu"></mat-icon>
+  </button>
+
+  <a *ngIf="isVerticalLayout$ | async" [routerLink]="['/']" class="ltr:mr-4 rtl:ml-4 block" fxLayout="row"
+    fxLayoutAlign="start center">
+    <img class="w-8 select-none" src="">
+    <h1 [fxHide]="mobileQuery" class="title ltr:pl-4 rtl:pr-4 m-0 select-none"></h1>
+  </a>
+
+  <app-toolbar-search></app-toolbar-search>
+
+  <span fxFlex></span>
+
+  <div class="px-1">
+    <button [matMenuTriggerFor]="languageMenu" mat-icon-button color="primary" type="button">
+      <ng-container *ngFor="let language of languages">
+        <mat-icon *ngIf="language.selected" [icIcon]="language.icon"></mat-icon>
+      </ng-container>
+    </button>
+  </div>
+
+  <mat-menu #languageMenu="matMenu" overlapTrigger="false" xPosition="before" yPosition="below">
+      <ng-container *ngFor="let language of languages">
+        <button mat-menu-item (click)="selectLanguage(language)">
+          <mat-icon [icIcon]="language.icon"></mat-icon>
+          <span>{{language.language | titlecase}}</span>
+        </button>
+      </ng-container>
+    </mat-menu>
+</div>

@@ -1,0 +1,42 @@
+<div [class.boxed]="isBoxed$ | async"
+     [class.horizontal-layout]="!(isLayoutVertical$ | async)"
+     [class.is-mobile]="!(isDesktop$ | async)"
+     [class.vertical-layout]="isLayoutVertical$ | async"
+     [class.has-fixed-footer]="(isFooterFixed$ | async) && (isFooterVisible$ | async)"
+     [class.has-footer]="isFooterVisible$ | async"
+     [class.toolbar-fixed]="isToolbarFixed$ | async"
+     [class.sidenav-collapsed]="sidenavCollapsed$ | async"
+     class="page-container">
+
+  <app-progress-bar></app-progress-bar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav
+                [disableClose]="isDesktop$ | async"
+                [fixedInViewport]="!(isDesktop$ | async)"
+                [mode]="!(isDesktop$ | async) || (isLayoutVertical$ | async) ? 'over' : 'side'"
+                [opened]="(isDesktop$ | async) && !(isLayoutVertical$ | async)"
+                class="sidenav">
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+      <app-toolbar class="app-toolbar"></app-toolbar>
+
+      <main class="content">
+        <div class="p-gutter">
+          <div fxLayout="column" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start start" fxLayoutGap.gt-sm="30px">
+            <div fxFlex="70%">
+              <router-outlet></router-outlet>
+            </div>
+            <div fxFlex.gt-sm="30%" class="w-full mt-12 bg-card">
+              Big things no fit finish
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
