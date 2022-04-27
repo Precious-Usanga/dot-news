@@ -1,0 +1,14 @@
+<div class="flex items-center">
+  <app-breadcrumb>
+    <a [routerLink]="['/news']">
+      <ic-icon [icon]="icHome" [inline]="true" size="20px"></ic-icon>
+    </a>
+  </app-breadcrumb>
+  <ng-container *ngFor="let crumb of crumbs;">
+    <div class="w-1 h-1 bg-gray rounded-full ltr:mr-2 rtl:ml-2" *ngIf="crumb.label !== 'Home'"></div>
+    <app-breadcrumb *ngIf="crumb.label !== 'Home'">
+      <a [routerLink]="[crumb?.routeLink]">{{ crumb?.label }}</a>
+    </app-breadcrumb>
+  </ng-container>
+
+</div>

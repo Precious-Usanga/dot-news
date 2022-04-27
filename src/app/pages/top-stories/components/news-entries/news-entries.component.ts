@@ -1,12 +1,9 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import icAddBookmark from '@iconify/icons-ic/round-bookmark-add';
 import icShare from '@iconify/icons-ic/round-share';
+import icVisibility from '@iconify/icons-ic/round-visibility';
 import { INewsArticle } from 'src/app/core/models/news.model';
-import { ComponentType } from '@angular/cdk/portal';
-import { AddBookmarkModalComponent } from 'src/app/core/shared/modals/add-bookmark-modal/add-bookmark-modal.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { IModalDialogData } from 'src/app/core/models/modal.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-news-entries',
@@ -20,43 +17,22 @@ export class NewsEntriesComponent implements OnInit {
 
   icAddBookmark = icAddBookmark;
   icShare = icShare;
+  icVisibility = icVisibility;
 
-  addBookmarkModal = AddBookmarkModalComponent;
-  modal!: MatDialogRef<TemplateRef<any> | ComponentType<any>>;
+  @Output() openModal: EventEmitter<IModalDialogData> = new EventEmitter<IModalDialogData>();
+  @Output() readANews: EventEmitter<INewsArticle> = new EventEmitter<INewsArticle>();
 
-  constructor(
-    private dialog: MatDialog,
-    private snackBar: MatSnackBar
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  addToBookmarks(news: INewsArticle) {
-    console.log(news);
+  openAModal(options: IModalDialogData) {
+    this.openModal.emit(options);
   }
 
-  openDialog(dialog: TemplateRef<any> | ComponentType<any>, options: IModalDialogData) {
-    let width;
-    if (options.modal === "addBookmarkModal") {
-      width = "600px";
-    }
-
-    this.modal = this.dialog.open(dialog, { data: options, disableClose: true, width: width });
-
-    if (options.modal === 'addBookmarkModal') {
-      this.modal.afterClosed().subscribe(
-        data => {
-          if (data.result.data) {
-            this.openSnackBar(data.result.message);
-          }
-        }
-      );
-    }
-  }
-
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'X');
+  readNews(options: INewsArticle) {
+    this.readANews.emit(options);
   }
 
 }

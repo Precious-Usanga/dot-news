@@ -1,1 +1,18 @@
-<p>bookmarks works!</p>
+<div class="mb-4 w-full">
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row">
+      <h1 class="text-xl font-bold">Your reads...</h1>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
+      <div class="py-4" *ngIf="bookmarks && bookmarks.length > 0" gdColumns="1fr 1fr" gdColumns.xs="1fr" gdGap="20px">
+        <ng-container *ngFor="let bookmark of bookmarks">
+          <app-bookmark-cards [bookmark]="bookmark" (openModal)="openDialog($event)" (readANews)="readNews($event)"></app-bookmark-cards>
+        </ng-container>
+      </div>
+      <ng-container *ngIf="!bookmarks || bookmarks.length <= 0">
+        <app-no-data-card [data]="'bookmark'" (refreshComponent)="refreshComponent($event)"></app-no-data-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

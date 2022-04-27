@@ -1,0 +1,49 @@
+<mat-card class="max-w-full">
+  <mat-card-header>
+
+    <mat-card-subtitle>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+        <span>
+          {{ article.publishedAt | date: 'medium'}}
+        </span>
+
+        <span class="text-xs no-wrap font-semibold py-1 px-2 rounded-full bg-primary-light text-[#0768B5]">
+            {{ article.source.name | titlecase}}
+        </span>
+
+      </div>
+    </mat-card-subtitle>
+
+    <mat-card-title class="text-sm">{{ article.title | titlecase }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image *ngIf="article.urlToImage" [src]="article.urlToImage">
+  <mat-card-content>
+    <p class="px-4" *ngIf="article.description"> {{ article.description.slice(0, 101) }}... <span class="underline cursor-pointer text-purple" (click)="readNews(article)">Read more</span> </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <div fxLayout="row">
+      <a [href]="article.url">
+        <button color="primary" mat-icon-button>
+          <mat-icon [icIcon]="icLink"></mat-icon>
+        </button>
+      </a>
+      <button color="green" (click)="isFavorite = !isFavorite" mat-icon-button>
+        <mat-icon [icIcon]="isFavorite ? icFavorite : icUnfavorite"></mat-icon>
+      </button>
+      <span fxFlex></span>
+      <button mat-button color="primary">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icShare" class="block text-[#0768B5]"></mat-icon>
+          <span class="text-xs text-[#0768B5]">Share</span>
+        </div>
+      </button>
+      <button mat-button color="primary" (click)="openAModal({modal: 'addBookmarkModal', action: 'add', extraData: article })">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icAddBookmark" class="block text-[#0768B5]"></mat-icon>
+          <span class="text-xs text-[#0768B5]">Read Later</span>
+        </div>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

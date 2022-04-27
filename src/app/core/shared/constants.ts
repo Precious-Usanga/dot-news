@@ -2,6 +2,7 @@ export const Constants = {
   STORAGE_VARIABLES: {
     LANGUAGE: "LANGUAGE",
     BOOKMARKS: "BOOKMARKS",
+    CURRENT_NEWS: "CURRENT_NEWS"
   },
   PARAM_VARIABLES: {
     SORT_BY: {

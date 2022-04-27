@@ -1,9 +1,17 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Constants } from 'src/app/core/shared/constants';
 import icMoreHoriz from '@iconify/icons-ic/round-more-horiz';
 import { IApiResponse } from 'src/app/core/models/IApiResponse.model';
 import { INewsArticle } from 'src/app/core/models/news.model';
 import { NewsService } from 'src/app/core/services/news.service';
+import { Router } from '@angular/router';
+import { ShareDataViaRouteService } from 'src/app/core/services/share-data-via-route.service';
+import { ComponentType } from '@angular/cdk/portal';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { IModalDialogData } from 'src/app/core/models/modal.model';
+import { AddBookmarkModalComponent } from 'src/app/core/shared/modals/add-bookmark-modal/add-bookmark-modal.component';
+import { MatChip, MatChipList, MatChipSelectionChange } from '@angular/material/chips';
 
 @Component({
   selector: 'app-top-stories',
@@ -12,13 +20,15 @@ import { NewsService } from 'src/app/core/services/news.service';
 })
 export class TopStoriesComponent implements OnInit {
 
+  @ViewChild('chipList') chipList!: MatChipList;
+
   icMoreHoriz = icMoreHoriz;
   // news!: IApiResponse<INewsArticle>;
 
   leadNews!: INewsArticle | undefined;
 
-  pageSize!: number;
-  page!: number;
+  pageSize = 20;
+  page = 1;
 
   news: IApiResponse<INewsArticle> = {
                                         status: "ok",
@@ -152,18 +162,25 @@ export class TopStoriesComponent implements OnInit {
     }
   });
 
+  addBookmarkModal = AddBookmarkModalComponent;
+  modal!: MatDialogRef<TemplateRef<any> | ComponentType<any>>;
 
 
   constructor(
     private newsService: NewsService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private readNewsService: ShareDataViaRouteService,
+    private router: Router,
+    private cd: ChangeDetectorRef
   ) {
     this.setDefaultFilter();
   }
 
-  ngOnInit(): void {
-    // this.getHeadlines({ pageSize: 10, page: 1 });
 
-    console.log(this.news);
+  ngOnInit(): void {
+    // this.getHeadlines({ pageSize: this.pageSize, page: this.page });
+
     this.leadNews = this.news.articles.shift();
   }
 
@@ -171,31 +188,63 @@ export class TopStoriesComponent implements OnInit {
     this.topStoriesFilter[0].selected = true;
   }
 
-  onFilterChange(filter: string) {
-    this.topStoriesFilter.forEach(item => {
-      if (item.filter !== filter && item.selected) {
-        item.selected = !item.selected;
-      }
-
-      if (item.filter === filter) {
-        item.selected = true;
-      }
-    });
+  chipChange(filter: string) {
+    this.chipList?.chipSelectionChanges.subscribe(event => {
+      console.log(event);
+    })
+    const index = this.topStoriesFilter.findIndex(item => item.filter === filter);
+    this.topStoriesFilter[index].selected = true;
   }
 
-  getHeadlines(params: { pageSize: number, page: number }) {
+  getHeadlines(params: { category?: string, pageSize: number, page: number }) {
     this.newsService.getNewsHeadlines(params).subscribe(
       {
         next: (response) => {
-          console.log(response);
           this.news = response;
           this.leadNews = this.news.articles.shift();
+          this.cd.markForCheck();
         },
         error: (error) => {
+          this.snackBar.open(error.message, 'X')
           console.log(error);
         }
       }
     );
+  }
+
+  openDialog(options: IModalDialogData) {
+    let dialog!: TemplateRef<any> | ComponentType < any >;
+    let width;
+    if (options.modal === "addBookmarkModal") {
+      width = "600px";
+      dialog = this.addBookmarkModal;
+      this.modal = this.dialog.open(dialog, { data: options, disableClose: true, width: width });
+    }
+
+    if (options.modal === 'addBookmarkModal') {
+      this.modal.afterClosed().subscribe(
+        data => {
+          if (data.result.data) {
+            this.openSnackBar(data.result.message);
+          }
+        }
+      );
+    }
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'X');
+  }
+
+  readNews(news: INewsArticle) {
+    this.readNewsService.updateSharedData(news);
+    this.router.navigate(['/news/view-news']);
+  }
+
+  refreshComponent(refresh: boolean) {
+    if (refresh) {
+      this.getHeadlines({ pageSize: this.pageSize, page: this.page });
+    }
   }
 
 }

@@ -1,1 +1,24 @@
-<p>category works!</p>
+<div class="mb-4 w-full">
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="15px">
+      <h1 class="text-xl font-bold">{{ category | titlecase}} News</h1>
+      <app-dynamic-filter [filters]="filters$ | async" (formDataEmitter)="onFilterSubmit($event)"></app-dynamic-filter>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
+      <div class="py-4" *ngIf="(categoryArticles$ | async) as categoryArticles" gdColumns="1fr 1fr" gdColumns.xs="1fr" gdGap="20px">
+        <ng-container *ngFor="let article of categoryArticles.articles">
+          <app-category-card
+              [article]="article"
+              (openModal)="openDialog($event)"
+              (readANews)="readNews($event)">
+            ></app-category-card>
+        </ng-container>
+      </div>
+
+      <ng-container *ngIf="!(categoryArticles$ | async)">
+        <app-no-data-card [data]="category + ' news'" (refreshComponent)="refreshComponent($event)"></app-no-data-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div [formGroup]="form" [ngSwitch]="filter.controlType" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-form-field *ngSwitchCase="'dropdown'" appearance="outline" class="mr-1" style="padding-top: 1.34375em; width: 200px;">
+        <mat-label>{{filter.label | titlecase}}</mat-label>
+        <mat-select [formControlName]="filter.key">
+            <mat-option>Select {{filter.label | titlecase}}</mat-option>
+            <ng-container *ngFor="let opt of filter.options">
+                <mat-option [value]="opt.value">
+                    {{opt.key | titlecase}}
+                </mat-option>
+            </ng-container>
+        </mat-select>
+        <mat-error *ngIf="!isValid"> {{filter.label | titlecase}} is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'textbox'" appearance="outline" class="mr-1" style="padding-top: 1.34375em; width: 200px;">
+        <mat-label>{{filter.label | titlecase}}</mat-label>
+        <input [formControlName]="filter.key" matInput [type]="filter.type">
+        <mat-error *ngIf="!isValid"> {{filter.label | titlecase}} is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngSwitchCase="'date_range'" appearance="outline" class="mr-1 w" style="padding-top: 1.34375em; width: 220px;">
+        <mat-date-range-input [formGroupName]="filter.key" [max]="maxDate" [rangePicker]="picker">
+            <input matStartDate placeholder="Start Date" formControlName="from">
+            <input matEndDate placeholder="End Date" formControlName="to">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error *ngIf="!isValid"> {{filter.label | titlecase}} is required</mat-error>
+    </mat-form-field>
+
+</div>

@@ -1,0 +1,887 @@
+[
+  {
+    "name": "Argentina",
+    "code": "AR",
+    "capital": "Buenos Aires",
+    "region": "SA",
+    "currency": {
+      "code": "ARS",
+      "name": "Argentine peso",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+54"
+  },
+  {
+    "name": "Australia",
+    "code": "AU",
+    "capital": "Canberra",
+    "region": "OC",
+    "currency": {
+      "code": "AUD",
+      "name": "Australian dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+61"
+  },
+  {
+    "name": "Belgium",
+    "code": "BE",
+    "capital": "Brussels",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "nl",
+      "name": "Dutch"
+    },
+    "dialling_code": "+32"
+  },
+  {
+    "name": "Brazil",
+    "code": "BR",
+    "capital": "Brasília",
+    "region": "SA",
+    "currency": {
+      "code": "BRL",
+      "name": "Brazilian real",
+      "symbol": "R$"
+    },
+    "language": {
+      "code": "pt",
+      "name": "Portuguese"
+    },
+    "dialling_code": "+55"
+  },
+  {
+    "name": "Bulgaria",
+    "code": "BG",
+    "capital": "Sofia",
+    "region": "EU",
+    "currency": {
+      "code": "BGN",
+      "name": "Bulgarian lev",
+      "symbol": "лв"
+    },
+    "language": {
+      "code": "bg",
+      "name": "Bulgarian"
+    },
+    "dialling_code": "+359"
+  },
+  {
+    "name": "Canada",
+    "code": "CA",
+    "capital": "Ottawa",
+    "region": "NA",
+    "currency": {
+      "code": "CAD",
+      "name": "Canadian dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+1"
+  },
+  {
+    "name": "China",
+    "code": "CN",
+    "capital": "Beijing",
+    "region": "AS",
+    "currency": {
+      "code": "CNY",
+      "name": "Chinese yuan",
+      "symbol": "¥"
+    },
+    "language": {
+      "code": "zh",
+      "name": "Chinese"
+    },
+    "dialling_code": "+86"
+  },
+  {
+    "name": "Colombia",
+    "code": "CO",
+    "capital": "Bogotá",
+    "region": "SA",
+    "currency": {
+      "code": "COP",
+      "name": "Colombian peso",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+57"
+  },
+  {
+    "name": "Cuba",
+    "code": "CU",
+    "capital": "Havana",
+    "region": "NA",
+    "currency": {
+      "code": "CUC",
+      "name": "Cuban convertible peso",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+53"
+  },
+  {
+    "name": "Cuba",
+    "code": "CU",
+    "capital": "Havana",
+    "region": "NA",
+    "currency": {
+      "code": "CUC",
+      "name": "Cuban convertible peso",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+53"
+  },
+  {
+    "name": "Czech Republic",
+    "code": "CZ",
+    "capital": "Prague",
+    "region": "EU",
+    "currency": {
+      "code": "CZK",
+      "name": "Czech koruna",
+      "symbol": "Kč"
+    },
+    "language": {
+      "code": "cs",
+      "name": "Czech"
+    },
+    "dialling_code": "+420"
+  },
+  {
+    "name": "Egypt",
+    "code": "EG",
+    "capital": "Cairo",
+    "region": "AF",
+    "currency": {
+      "code": "EGP",
+      "name": "Egyptian pound",
+      "symbol": "£"
+    },
+    "language": {
+      "code": "ar",
+      "name": "Arabic"
+    },
+    "dialling_code": "+20"
+  },
+  {
+    "name": "France",
+    "code": "FR",
+    "capital": "Paris",
+    "region": "EU",
+    "demonym": "French",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "fr",
+      "name": "French"
+    },
+    "dialling_code": "+33"
+  },
+  {
+    "name": "Germany",
+    "code": "DE",
+    "capital": "Berlin",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "de",
+      "name": "German"
+    },
+    "dialling_code": "+49"
+  },
+  {
+    "name": "Greece",
+    "code": "GR",
+    "capital": "Athens",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "el",
+      "name": "Greek (modern)"
+    },
+    "dialling_code": "+30"
+  },
+  {
+    "name": "Hong Kong",
+    "code": "HK",
+    "capital": "City of Victoria",
+    "region": "AS",
+    "currency": {
+      "code": "HKD",
+      "name": "Hong Kong dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+852"
+  },
+  {
+    "name": "Hungary",
+    "code": "HU",
+    "capital": "Budapest",
+    "region": "EU",
+    "currency": {
+      "code": "HUF",
+      "name": "Hungarian forint",
+      "symbol": "Ft"
+    },
+    "language": {
+      "code": "hu",
+      "name": "Hungarian"
+    },
+    "dialling_code": "+36"
+  },
+  {
+    "name": "India",
+    "code": "IN",
+    "capital": "New Delhi",
+    "region": "AS",
+    "currency": {
+      "code": "INR",
+      "name": "Indian rupee",
+      "symbol": "₹"
+    },
+    "language": {
+      "code": "hi",
+      "name": "Hindi"
+    },
+    "dialling_code": "+91"
+  },
+  {
+    "name": "Indonesia",
+    "code": "ID",
+    "capital": "Jakarta",
+    "region": "AS",
+    "currency": {
+      "code": "IDR",
+      "name": "Indonesian rupiah",
+      "symbol": "Rp"
+    },
+    "language": {
+      "code": "id",
+      "name": "Indonesian"
+    },
+    "dialling_code": "+62"
+  },
+  {
+    "name": "Ireland",
+    "code": "IE",
+    "capital": "Dublin",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "ga",
+      "name": "Irish"
+    },
+    "dialling_code": "+353"
+  },
+  {
+    "name": "Israel",
+    "code": "IL",
+    "capital": "Jerusalem",
+    "region": "AS",
+    "currency": {
+      "code": "ILS",
+      "name": "Israeli new shekel",
+      "symbol": "₪"
+    },
+    "language": {
+      "code": "he",
+      "name": "Hebrew (modern)"
+    },
+    "dialling_code": "+972"
+  },
+  {
+    "name": "Italy",
+    "code": "IT",
+    "capital": "Rome",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "it",
+      "name": "Italian"
+    },
+    "dialling_code": "+39"
+  },
+  {
+    "name": "Japan",
+    "code": "JP",
+    "capital": "Tokyo",
+    "region": "AS",
+    "currency": {
+      "code": "JPY",
+      "name": "Japanese yen",
+      "symbol": "¥"
+    },
+    "language": {
+      "code": "ja",
+      "name": "Japanese"
+    },
+    "dialling_code": "+81"
+  },
+  {
+    "name": "Latvia",
+    "code": "LV",
+    "capital": "Riga",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "lv",
+      "name": "Latvian"
+    },
+    "dialling_code": "+371"
+  },
+  {
+    "name": "Lithuania",
+    "code": "LT",
+    "capital": "Vilnius",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "lt",
+      "name": "Lithuanian"
+    },
+    "dialling_code": "+370"
+  },
+  {
+    "name": "Malaysia",
+    "code": "MY",
+    "capital": "Kuala Lumpur",
+    "region": "AS",
+    "currency": {
+      "code": "MYR",
+      "name": "Malaysian ringgit",
+      "symbol": "RM"
+    },
+    "language": {
+      "code": null,
+      "name": "Malaysian"
+    },
+    "dialling_code": "+60"
+  },
+  {
+    "name": "Mexico",
+    "code": "MX",
+    "capital": "Mexico City",
+    "region": "NA",
+    "currency": {
+      "code": "MXN",
+      "name": "Mexican peso",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+52"
+  },
+  {
+    "name": "Morocco",
+    "code": "MA",
+    "capital": "Rabat",
+    "region": "AF",
+    "currency": {
+      "code": "MAD",
+      "name": "Moroccan dirham",
+      "symbol": "د.م."
+    },
+    "language": {
+      "code": "ar",
+      "name": "Arabic"
+    },
+    "dialling_code": "+212"
+  },
+  {
+    "name": "Netherlands",
+    "code": "NL",
+    "capital": "Amsterdam",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "nl",
+      "name": "Dutch"
+    },
+    "dialling_code": "+31"
+  },
+  {
+    "name": "New Zealand",
+    "code": "NZ",
+    "capital": "Wellington",
+    "region": "OC",
+    "currency": {
+      "code": "NZD",
+      "name": "New Zealand dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+64"
+  },
+  {
+    "name": "Nigeria",
+    "code": "NG",
+    "capital": "Abuja",
+    "region": "AF",
+    "currency": {
+      "code": "NGN",
+      "name": "Nigerian naira",
+      "symbol": "₦"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+234"
+  },
+  {
+    "name": "Norway",
+    "code": "NO",
+    "capital": "Oslo",
+    "region": "EU",
+    "currency": {
+      "code": "NOK",
+      "name": "Norwegian krone",
+      "symbol": "kr"
+    },
+    "language": {
+      "code": "no",
+      "name": "Norwegian"
+    },
+    "dialling_code": "+47"
+  },
+  {
+    "name": "Philippines",
+    "code": "PH",
+    "capital": "Manila",
+    "region": "AS",
+    "currency": {
+      "code": "PHP",
+      "name": "Philippine peso",
+      "symbol": "₱"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+63"
+  },
+  {
+    "name": "Poland",
+    "code": "PL",
+    "capital": "Warsaw",
+    "region": "EU",
+    "currency": {
+      "code": "PLN",
+      "name": "Polish złoty",
+      "symbol": "zł"
+    },
+    "language": {
+      "code": "pl",
+      "name": "Polish"
+    },
+    "dialling_code": "+48"
+  },
+  {
+    "name": "Portugal",
+    "code": "PT",
+    "capital": "Lisbon",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "pt",
+      "name": "Portuguese"
+    },
+    "dialling_code": "+351"
+  },
+  {
+    "name": "Romania",
+    "code": "RO",
+    "capital": "Bucharest",
+    "region": "EU",
+    "currency": {
+      "code": "RON",
+      "name": "Romanian leu",
+      "symbol": "lei"
+    },
+    "language": {
+      "code": "ro",
+      "name": "Romanian"
+    },
+    "dialling_code": "+40"
+  },
+  {
+    "name": "Russian Federation",
+    "code": "RU",
+    "capital": "Moscow",
+    "region": "EU",
+    "currency": {
+      "code": "RUB",
+      "name": "Russian ruble",
+      "symbol": "₽"
+    },
+    "language": {
+      "code": "ru",
+      "name": "Russian"
+    },
+    "dialling_code": "+7"
+  },
+  {
+    "name": "Saudi Arabia",
+    "code": "SA",
+    "capital": "Riyadh",
+    "region": "AS",
+    "currency": {
+      "code": "SAR",
+      "name": "Saudi riyal",
+      "symbol": "ر.س"
+    },
+    "language": {
+      "code": "ar",
+      "name": "Arabic"
+    },
+    "dialling_code": "+966"
+  },
+  {
+    "name": "Serbia",
+    "code": "RS",
+    "capital": "Belgrade",
+    "region": "EU",
+    "currency": {
+      "code": "RSD",
+      "name": "Serbian dinar",
+      "symbol": "дин."
+    },
+    "language": {
+      "code": "sr",
+      "name": "Serbian"
+    },
+    "dialling_code": "+381"
+  },
+  {
+    "name": "Singapore",
+    "code": "SG",
+    "capital": "Singapore",
+    "region": "AS",
+    "currency": {
+      "code": "SGD",
+      "name": "Singapore dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+65"
+  },
+  {
+    "name": "Singapore",
+    "code": "SG",
+    "capital": "Singapore",
+    "region": "AS",
+    "currency": {
+      "code": "SGD",
+      "name": "Singapore dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+65"
+  },
+  {
+    "name": "Slovakia",
+    "code": "SK",
+    "capital": "Bratislava",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "sk",
+      "name": "Slovak"
+    },
+    "dialling_code": "+421"
+  },
+  {
+    "name": "Slovenia",
+    "code": "SI",
+    "capital": "Ljubljana",
+    "region": "EU",
+    "currency": {
+      "code": "EUR",
+      "name": "Euro",
+      "symbol": "€"
+    },
+    "language": {
+      "code": "sl",
+      "name": "Slovene"
+    },
+    "dialling_code": "+386"
+  },
+  {
+    "name": "South Africa",
+    "code": "ZA",
+    "capital": "Pretoria",
+    "region": "AF",
+    "currency": {
+      "code": "ZAR",
+      "name": "South African rand",
+      "symbol": "R"
+    },
+    "language": {
+      "code": "en",
+      "iso639_2": "eng",
+      "name": "English",
+      "nativeName": "English"
+    },
+    "dialling_code": "+27"
+  },
+  {
+    "name": "Korea (Republic of)",
+    "code": "KR",
+    "capital": "Seoul",
+    "region": "AS",
+    "currency": {
+      "code": "KRW",
+      "name": "South Korean won",
+      "symbol": "₩"
+    },
+    "language": {
+      "code": "ko",
+      "name": "Korean"
+    },
+    "dialling_code": "+82"
+  },
+  {
+    "name": "Sweden",
+    "code": "SE",
+    "capital": "Stockholm",
+    "region": "EU",
+    "currency": {
+      "code": "SEK",
+      "name": "Swedish krona",
+      "symbol": "kr"
+    },
+    "language": {
+      "code": "sv",
+      "name": "Swedish"
+    },
+    "dialling_code": "+46"
+  },
+  {
+    "name": "Switzerland",
+    "code": "CH",
+    "capital": "Bern",
+    "region": "EU",
+    "currency": {
+      "code": "CHF",
+      "name": "Swiss franc",
+      "symbol": "Fr"
+    },
+    "language": {
+      "code": "de",
+      "name": "German"
+    },
+    "dialling_code": "+41"
+  },
+  {
+    "name": "Taiwan",
+    "code": "TW",
+    "capital": "Taipei",
+    "region": "AS",
+    "currency": {
+      "code": "TWD",
+      "name": "New Taiwan dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "zh",
+      "name": "Chinese"
+    },
+    "dialling_code": "+886"
+  },
+  {
+    "name": "Thailand",
+    "code": "TH",
+    "capital": "Bangkok",
+    "region": "AS",
+    "currency": {
+      "code": "THB",
+      "name": "Thai baht",
+      "symbol": "฿"
+    },
+    "language": {
+      "code": "th",
+      "name": "Thai"
+    },
+    "dialling_code": "+66"
+  },
+  {
+    "name": "Turkey",
+    "code": "TR",
+    "capital": "Ankara",
+    "region": "AS",
+    "currency": {
+      "code": "TRY",
+      "name": "Turkish lira",
+      "symbol": null
+    },
+    "language": {
+      "code": "tr",
+      "name": "Turkish"
+    },
+    "dialling_code": "+90"
+  },
+  {
+    "name": "Ukraine",
+    "code": "UA",
+    "capital": "Kiev",
+    "region": "EU",
+    "currency": {
+      "code": "UAH",
+      "name": "Ukrainian hryvnia",
+      "symbol": "₴"
+    },
+    "language": {
+      "code": "uk",
+      "name": "Ukrainian"
+    },
+    "dialling_code": "+380"
+  },
+  {
+    "name": "United Arab Emirates",
+    "code": "AE",
+    "capital": "Abu Dhabi",
+    "region": "AS",
+    "currency": {
+      "code": "AED",
+      "name": "United Arab Emirates dirham",
+      "symbol": "د.إ"
+    },
+    "language": {
+      "code": "ar",
+      "name": "Arabic"
+    },
+    "dialling_code": "+971"
+  },
+  {
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "code": "GB",
+    "capital": "London",
+    "region": "EU",
+    "currency": {
+      "code": "GBP",
+      "name": "British pound",
+      "symbol": "£"
+    },
+    "language": {
+      "code": "en",
+      "name": "English"
+    },
+    "dialling_code": "+44"
+  },
+  {
+    "name": "United States of America",
+    "code": "US",
+    "capital": "Washington, D.C.",
+    "region": "NA",
+    "currency": {
+      "code": "USD",
+      "name": "United States dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "en",
+      "iso639_2": "eng",
+      "name": "English",
+      "nativeName": "English"
+    },
+    "dialling_code": "+1"
+  },
+  {
+    "name": "Venezuela (Bolivarian Republic of)",
+    "code": "VE",
+    "capital": "Caracas",
+    "region": "SA",
+    "currency": {
+      "code": "VEF",
+      "name": "Venezuelan bolívar",
+      "symbol": "Bs F"
+    },
+    "language": {
+      "code": "es",
+      "name": "Spanish"
+    },
+    "dialling_code": "+58"
+  }
+]

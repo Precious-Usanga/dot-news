@@ -7,6 +7,7 @@ import { IconModule } from '@visurel/iconify-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToolbarSearchModule } from './toolbar-search/toolbar-search.module';
 import { FormsModule } from '@angular/forms';
+import { ToolbarNotificationsModule } from './toolbar-notifications/toolbar-notifications.module';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     IconModule,
     FlexLayoutModule,
-    ToolbarSearchModule
+    ToolbarSearchModule,
+    ToolbarNotificationsModule
   ],
   exports: [ToolbarComponent]
 })

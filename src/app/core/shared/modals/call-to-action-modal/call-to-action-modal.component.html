@@ -1,0 +1,19 @@
+<div class="p-6 relative trans-shadow"
+        fxLayout="column"
+        fxLayoutAlign="start center">
+
+    <div class="rounded-full -ml-2 -mt-4 mb-4 flex items-center justify-center">
+        <mat-icon size="48px" [color]="data?.color || ''" [icIcon]="icUserClock"></mat-icon>
+    </div>
+
+    <h2 class="subheading-2 text-center text-{{data.color}} font-extrabold mt-6">WAIT!</h2>
+    <h3 class="subheading-2 font-medium text-center text-secondary m-0">{{ data.question }}</h3>
+
+    <div class="mt-6" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+        <ng-container *ngIf="!callToActionLoading">
+            <button mat-stroked-button mat-dialog-close (click)="closeModal()">Cancel</button>
+            <button mat-raised-button [color]="data.color" (click)="submitDialogAction(data)">{{ data.action | titlecase}}</button>
+        </ng-container>
+        <mat-progress-spinner *ngIf="callToActionLoading" [color]="data.color" mode="indeterminate" diameter='30' strokeWidth='3'></mat-progress-spinner>
+    </div>
+</div>
