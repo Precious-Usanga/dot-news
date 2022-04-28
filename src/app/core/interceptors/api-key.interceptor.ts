@@ -5,15 +5,17 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class ApiKeyInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private spinner: NgxSpinnerService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    this.spinner.show();
 
     const isBaseUrl = request.url.startsWith(environment.BASE_URL);
 
@@ -25,6 +27,6 @@ export class ApiKeyInterceptor implements HttpInterceptor {
       );
     }
 
-    return next.handle(request);
+    return next.handle(request).pipe(finalize(() => this.spinner.hide()));
   }
 }

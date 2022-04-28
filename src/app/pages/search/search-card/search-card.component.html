@@ -18,7 +18,7 @@
   </mat-card-header>
   <img mat-card-image *ngIf="article.urlToImage" [src]="article.urlToImage">
   <mat-card-content>
-    <p class="px-4" *ngIf="article.description"> {{ article.description.slice(0, 101) }}... <span class="underline cursor-pointer text-purple" (click)="readNews(article)">Read more</span> </p>
+    <p class="px-4 text-justify" *ngIf="article.description"> {{ article.description.slice(0, 101) }}... <span class="underline cursor-pointer text-purple" (click)="readNews(article)">Read more</span> </p>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions>

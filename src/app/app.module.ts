@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiKeyInterceptor } from './core/interceptors/api-key.interceptor';
 import { LanguageInterceptor } from './core/interceptors/language.interceptor';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    OverlayModule
+    OverlayModule,
+    NgxSpinnerModule
   ],
   providers: [
     {

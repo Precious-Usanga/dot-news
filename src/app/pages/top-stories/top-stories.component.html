@@ -7,7 +7,7 @@
     <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
       <mat-chip-list aria-label="Filter News" #chipList>
         <ng-container *ngFor="let options of topStoriesFilter">
-          <mat-chip [value]="options.value" [selectable]="true" selected="true" (click)="chipChange(options.value)" color="primary">{{options.filter | titlecase}}</mat-chip>
+          <mat-chip [value]="options.value" [selectable]="true" (click)="chipClick(options.value)" (selectionChange)="filterNewsHeadlines($event, options.value)" color="primary">{{options.filter | titlecase}}</mat-chip>
         </ng-container>
       </mat-chip-list>
 

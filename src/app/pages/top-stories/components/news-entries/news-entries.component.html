@@ -7,10 +7,10 @@
       </p>
 
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px" fxLayoutGap.gt-sm="30px">
-          <span class="text-[#072D4B] opacity-50 text-xs">
+          <span class="text-[#072D4B] text-opacity-50 text-xs">
             {{ news.source.name| titlecase}}
           </span>
-          <span class="text-[#072D4B] opacity-50 text-xs">
+          <span class="text-[#072D4B] text-opacity-50 text-xs">
             {{ news.publishedAt | date }}
           </span>
           <span fxFlex></span>
@@ -38,12 +38,12 @@
   <div fxLayout="column" fxLayout.gt-xs="row" class="w-full" fxLayoutAlign="start center" fxLayoutGap="10px">
     <div fxFlexOrder="1" fxFlexOrder.gt-xs="0" fxFlex="100%" fxFlex.gt-xs="70%" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5px">
       <h3 class="text-base m-0 font-bold">{{ news.title | titlecase}}</h3>
-      <p class="text-secondary text-sm" *ngIf="news.description">
+      <p class="text-secondary text-sm text-justify" *ngIf="news.description">
         {{ news.description.slice(0, 60) }}...
       </p>
     </div>
     <div fxFlexOrder="0" fxFlexOrder.gt-xs="1" fxFlex="100%" fxFlex.gt-xs="30%" *ngIf="news.urlToImage" fxFlexAlign="start">
-      <img [src]="news.urlToImage" class="rounded-lg h-44 inline-block w-full ">
+      <img [src]="news.urlToImage" class="rounded-lg h-32 object-cover w-full ">
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">

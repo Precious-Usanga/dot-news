@@ -15,7 +15,7 @@
   </div>
 
   <div fxLayout="column" fxLayoutGap="15px">
-    <div class="py-2 text-base text-[#072D4B] opacity-50" fxLayout="row">
+    <div class="py-2 text-base text-[#072D4B] text-opacity-50" fxLayout="row">
       <p>
         {{ news.description }}
       </p>
@@ -26,14 +26,32 @@
     <img class="w-full object-cover h-full object-center block inset-0 rounded-lg" [src]="news.urlToImage">
   </div>
 
-  <div fxLayout="row" class="w-full mb-4">
+  <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="20px" class="w-full mb-4">
     <p class="text-base text-[#072D4B] opacity-50">
       {{ news.content }}
+    </p>
+
+    <p class="text-base text-[#072D4B] text-justify text-opacity-50">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum qui hic porro suscipit, eveniet accusamus cupiditate! Accusantium neque obcaecati porro expedita quasi nam commodi, magnam fugit doloremque corrupti iste!
+      Odit, esse? Impedit dicta quae explicabo architecto qui nostrum. Libero excepturi, in soluta voluptatem ipsum aliquam magnam voluptatibus veritatis exercitationem at eveniet magni, qui amet modi repudiandae animi quae debitis.
+      Corporis, soluta? Delectus, quisquam rerum autem incidunt deleniti, itaque atque, provident est quia laudantium vel repellendus consectetur? Amet rem facilis explicabo, excepturi voluptas minus porro perspiciatis consequuntur totam vitae corrupti?
+    </p>
+
+    <p class="text-base text-[#072D4B] text-justify text-opacity-50">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint voluptatum voluptate nemo quibusdam atque ea tempore cumque? Fuga ab possimus velit, repudiandae illum dolorum perferendis consequatur dolores atque delectus soluta?
+      Ducimus enim in laborum exercitationem culpa quas molestias pariatur dolorum quidem, sit quos facere animi sapiente quo quod laboriosam voluptatum incidunt! Quaerat odit velit nihil illum vel nam accusamus cum?
+      Minima quibusdam laborum delectus sed fugiat ex corrupti repellat vel ut nulla commodi voluptates dicta facere nobis facilis, modi rerum culpa beatae enim a unde ullam consequuntur asperiores! Ratione, dolores!
+    </p>
+
+    <p class="text-base text-[#072D4B] text-justify text-opacity-50">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint voluptatum voluptate nemo quibusdam atque ea tempore cumque? Fuga ab possimus velit, repudiandae illum dolorum perferendis consequatur dolores atque delectus soluta?
+      Ducimus enim in laborum exercitationem culpa quas molestias pariatur dolorum quidem, sit quos facere animi sapiente quo quod laboriosam voluptatum incidunt! Quaerat odit velit nihil illum vel nam accusamus cum?
+      Minima quibusdam laborum delectus sed fugiat ex corrupti repellat vel ut nulla commodi voluptates dicta facere nobis facilis, modi rerum culpa beatae enim a unde ullam consequuntur asperiores! Ratione, dolores!
     </p>
   </div>
 
   <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" class="w-full mb-4">
-    <p class="text-xs text-[#072D4B] opacity-25">
+    <p class="text-xs text-[#072D4B] text-opacity-25">
       <span>Published </span>
       <span>{{ news.publishedAt | date: 'medium' }}</span>
     </p>

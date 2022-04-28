@@ -16,8 +16,7 @@ export class NewsService {
   ) { }
 
   private handleError(error: HttpErrorResponse) {
-
-    if (error.error instanceof ErrorEvent) {
+    if (error.error) {
       return throwError(error.error);
     } else {
       return throwError(error);
