@@ -1,0 +1,37 @@
+<mat-card class="max-w-full">
+  <mat-card-header>
+    <mat-card-subtitle>
+      {{ bookmark.bookmarkedAt | date: 'medium'}}
+    </mat-card-subtitle>
+    <mat-card-title>{{ bookmark.title | titlecase }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="px-4 text-justify"> {{ bookmark.description }}  </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <div fxLayout="row">
+      <a [href]="bookmark.url">
+        <button color="primary" mat-icon-button>
+          <mat-icon [icIcon]="icLink"></mat-icon>
+        </button>
+      </a>
+      <button color="green" (click)="isFavorite = !isFavorite" mat-icon-button>
+        <mat-icon [icIcon]="isFavorite ? icFavorite : icUnfavorite"></mat-icon>
+      </button>
+      <span fxFlex></span>
+      <button mat-button color="primary" (click)="readNews(bookmark.bookmark)">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icVisibility" class="block text-[#0768B5]"></mat-icon>
+          <span class="text-xs text-[#0768B5]">View</span>
+        </div>
+      </button>
+      <button mat-button color="warn" (click)="openAModal({modal: 'callToActionModal', action: 'remove', extraData: bookmark })">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <mat-icon [icIcon]="icDeleteForever" class="block"></mat-icon>
+          <span class="text-xs">Remove</span>
+        </div>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

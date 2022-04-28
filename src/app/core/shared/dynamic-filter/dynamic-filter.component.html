@@ -1,0 +1,79 @@
+<div *ngIf="!isMobile" class="mb-4 header w-full">
+    <div
+        class="border border-solid border-secondary rounded bg-white shadow-md px-3 text-[#0768B5] max-w-[900px]"
+        [fxFlex]="selectedFilters?.length ? 'nogrow' : 'none'"
+        fxLayout="row wrap"
+        fxLayout.xs="column"
+        fxLayoutAlign="start center">
+
+        <div fxLayout="row" fxLayoutAlign="start center" class="cursor-pointer py-3" [matMenuTriggerFor]="menu">
+            <ic-icon [icIcon]="icFilterAlt" class="text-[#0768B5]" size="18px" fxFlex="none"></ic-icon>
+            <span class="mx-2 text-[#0768B5]">Filter</span>
+        </div>
+        <mat-menu #menu="matMenu" xPosition="after">
+            <ng-template matMenuContent let-name="name">
+                <ng-container *ngFor="let filter of filterBy;">
+                    <button fxLayout="row" fxLayoutAlign="start center" mat-menu-item (click)="preventMatMenuFromClosing($event)">
+                        <mat-checkbox [checked]="filter.checked" color="primary" (change)="selectFilter($event, filter)">
+                            <span> {{ filter.key | replaceUnderscoreWithSpace | titlecase }}</span>
+                        </mat-checkbox>
+                    </button>
+                </ng-container>
+            </ng-template>
+        </mat-menu>
+        <span *ngIf="selectedFilters?.length" class="mx-1 display-1 text-gray-light font-bold">|</span>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="selectedFilters?.length" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start center">
+            <ng-container *ngFor="let filter of selectedFilters">
+                <app-dynamic-filter-form   [filter]="filter" [form]="form"></app-dynamic-filter-form>
+            </ng-container>
+            <button color="primary" [disabled]="!form.valid" mat-raised-button type="submit">FILTER</button>
+        </form>
+        <span *ngIf="selectedFilters?.length" class="mx-1 display-1 text-gray-light bold-200">|</span>
+        <div *ngIf="selectedFilters?.length" fxLayout="row" fxLayoutAlign="start center" class="cursor-pointer py-3" (click)="resetFilter()">
+            <ic-icon [icIcon]="icReplay" class="text-warn" size="22px" fxFlex="none"></ic-icon>
+            <span class="mx-2 text-red">Reset filter</span>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isMobile">
+    <div class="mb-4 w-full">
+        <div
+            class="border border-solid border-secondary rounded shadow-md bg-white px-3 text-[#0768B5]"
+            fxLayout="column"
+            fxLayoutAlign="start center">
+
+            <div fxLayout="row" fxLayoutAlign="start center" class="cursor-pointer py-3" [matMenuTriggerFor]="menu">
+                <ic-icon [icIcon]="icFilterAlt" class="text-[#0768B5]" size="22px" fxFlex="none"></ic-icon>
+                <span class="mx-2 text-[#0768B5]">Filter</span>
+            </div>
+            <mat-menu #menu="matMenu" xPosition="after">
+                <ng-template matMenuContent let-name="name">
+                    <ng-container *ngFor="let filter of filterBy;">
+                        <button fxLayout="row" fxLayoutAlign="start center" mat-menu-item (click)="preventMatMenuFromClosing($event)">
+                            <mat-checkbox [checked]="filter.checked" color="primary" (change)="selectFilter($event, filter)">
+                                <span> {{ filter.key | replaceUnderscoreWithSpace | titlecase }}</span>
+                            </mat-checkbox>
+                        </button>
+                    </ng-container>
+                </ng-template>
+            </mat-menu>
+
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <form class="w-full" [formGroup]="form" *ngIf="selectedFilters?.length" fxLayout="column" fxLayoutAlign="space-evenly center">
+                    <ng-container *ngFor="let filter of selectedFilters">
+                        <app-dynamic-filter-form  [filter]="filter" [form]="form"></app-dynamic-filter-form>
+                    </ng-container>
+                </form>
+                <div *ngIf="selectedFilters?.length" class="mb-2" fxLayout="row" fxLayoutAlign="start start">
+                    <button (click)="onSubmit()" color="primary" [disabled]="!form.valid" mat-raised-button type="submit">FILTER</button>
+                    <div fxLayout="row" fxLayoutAlign="start center" class="cursor-pointer py-2" (click)="resetFilter()">
+                        <ic-icon [icIcon]="icReplay" class="text-warn" size="22px" fxFlex="none"></ic-icon>
+                        <span class="mx-2 text-red">Reset filter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

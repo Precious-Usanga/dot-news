@@ -21,16 +21,37 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav-content">
-      <app-toolbar class="app-toolbar"></app-toolbar>
+      <app-toolbar class="app-toolbar" [mobileQuery]="!(isDesktop$ | async)"></app-toolbar>
 
       <main class="content">
+          <app-secondary-toolbar [current]="currentRoute | titlecase">
+            <app-breadcrumbs [crumbs]="breadcrumbs"></app-breadcrumbs>
+
+            <span fxFlex></span>
+
+
+            <button mat-mini-fab class="mr-2" matTooltip="Navigate Back" color="white" type="button"
+              (click)="goBack()">
+              <mat-icon [icIcon]="icNavigateBefore"></mat-icon>
+            </button>
+
+            <button mat-mini-fab color="white" matTooltip="Navigate Forward" type="button"
+              (click)="goForward()">
+              <mat-icon [icIcon]="icNavigateNext"></mat-icon>
+            </button>
+
+          </app-secondary-toolbar>
+
         <div class="p-gutter">
           <div fxLayout="column" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start start" fxLayoutGap.gt-sm="30px">
-            <div fxFlex="70%">
+            <div fxFlex="100%" fxFlex.gt-xs="70%" fxLayout="column" class="overflow-x-hidden overflow-y-auto max-h-full w-full">
               <router-outlet></router-outlet>
             </div>
-            <div fxFlex.gt-sm="30%" class="w-full mt-12 bg-card">
-              Big things no fit finish
+            <div fxFlex="100%" fxFlex.gt-xs="30%" fxLayout="column" fxLayoutAlign="start center" fxlayoutGap="10px" class="overflow-x-hidden overflow-y-auto max-h-full w-full pt-2 md:pt-12">
+              <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="15px">
+                <ng-container [ngTemplateOutlet]="weatherDesign"></ng-container>
+                <ng-container [ngTemplateOutlet]="comingSoonDesign"></ng-container>
+              </div>
             </div>
           </div>
         </div>
@@ -40,3 +61,71 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+
+<ng-template #weatherDesign>
+  <div class="bg-white rounded shadow-8 text-center w-full px-4 overflow-hidden">
+    <div class="pt-4" fxLayout="row" fxLayoutAlign="space-between center">
+      <h3 class="text-base font-normal text-[#072D4B]">Lagos, Nigeria</h3>
+      <mat-icon [icIcon]="icMyLocation" size="20"></mat-icon>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="pt-4" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5px">
+        <span class="text-lg text-[#072D4B]">Sunny</span>
+        <span class="text-2xl font-extrabold text-[#072D4B]">31℃</span>
+      </div>
+      <img src="/assets/svg/sun.svg" class="h-[52px] w-[52px]">
+    </div>
+
+    <div class="py-4" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
+      <span class="text-xs text-[#072D4B]">Celsius</span>
+      <span class="text-xs text-[#072D4B] opacity-25">Fahrenheit</span>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #comingSoonDesign>
+  <div class="bg-card shadow-8 text-center w-full max-w-xs overflow-hidden">
+    <div class="p-6" fxLayout="column" fxLayoutAlign="start center">
+      <img class="w-16" src="assets/svg/dot-news-logo.svg">
+    </div>
+
+    <h1 class="display-1 font-medium m-0">COMING SOON</h1>
+    <h3 class="title mt-3 font-medium mb-0">Dot݀News website is under construction.</h3>
+
+    <div class="my-6" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+      <a class="cursor-pointer">
+        <ic-icon [icon]="faFacebook" height="20px" width="20px"></ic-icon>
+      </a>
+      <a class="cursor-pointer">
+        <ic-icon [icon]="faTwitter" height="20px" width="20px"></ic-icon>
+      </a>
+      <a class="cursor-pointer">
+        <ic-icon [icon]="faInstagram" height="20px" width="20px"></ic-icon>
+      </a>
+      <a class="cursor-pointer">
+        <ic-icon [icon]="faPinterest" height="20px" width="20px"></ic-icon>
+      </a>
+      <a class="cursor-pointer">
+        <ic-icon [icon]="faGithub" height="20px" width="20px"></ic-icon>
+      </a>
+    </div>
+
+    <div class="p-6" fxLayout="column">
+      <p class="mt-0 mb-4 font-medium">If you would like to get notified as soon as we launch, subscribe below and follow
+        us on socials!</p>
+
+      <mat-form-field>
+        <mat-label>E-Mail</mat-label>
+        <input matInput>
+        <mat-icon [icIcon]="icMail" matSuffix></mat-icon>
+      </mat-form-field>
+
+      <button color="primary" class="h-[38px]" mat-raised-button type="button">SUBSCRIBE</button>
+    </div>
+  </div>
+</ng-template>

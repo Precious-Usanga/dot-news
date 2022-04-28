@@ -6,6 +6,7 @@ const routes: Routes = [
   {
     path: 'news',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+    data: { breadcrumb: 'Home' }
   },
   {
     path: '404-page',

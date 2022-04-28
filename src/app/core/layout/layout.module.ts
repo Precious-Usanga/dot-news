@@ -8,12 +8,15 @@ import { FooterModule } from './footer/footer.module';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SecondaryToolbarModule } from './secondary-toolbar/secondary-toolbar.module';
+import { IconModule } from '@visurel/iconify-angular';
+import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 
 
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ToolbarModule,
     FooterModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SecondaryToolbarModule,
+    IconModule,
+    BreadcrumbsModule
   ],
   exports: [LayoutComponent]
 })

@@ -1,0 +1,28 @@
+<div class="dropdown">
+  <div class="dropdown-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <div class="dropdown-heading">Bookmarks</div>
+      <div class="dropdown-subheading">You have {{ bookmarks.length }} bookmarked reads.</div>
+    </div>
+  </div>
+
+  <div class="dropdown-content">
+    <a *ngFor="let bookmark of bookmarks;"
+       (click)="readNews(bookmark.bookmark)"
+       class="notification"
+       fxLayout="row"
+       fxLayoutAlign="start center"
+       matRipple>
+       <img [src]="bookmark.bookmark.urlToImage" class="h-20 w-20 rounded-lg">
+      <div fxFlex="auto">
+        <div class="notification-label">{{ bookmark.title }}</div>
+        <div class="notification-description">{{ bookmark.bookmarkedAt | date: 'medium' }}</div>
+      </div>
+      <mat-icon [icIcon]="icChevronRight" class="notification-chevron" fxFlex="none"></mat-icon>
+    </a>
+  </div>
+
+  <div class="dropdown-footer" fxLayout="row" fxLayoutAlign="center center">
+    <button color="primary" mat-button type="button" [routerLink]="['/news/bookmarks']">VIEW ALL BOOKMARKS</button>
+  </div>
+</div>

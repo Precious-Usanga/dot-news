@@ -1,1 +1,26 @@
-<p>search works!</p>
+<div class="mb-4 w-full">
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <h1 class="text-lg font-bold">Filter through all available news!</h1>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+      <app-dynamic-filter [filters]="filters$ | async" (formDataEmitter)="onFilterSubmit($event)"></app-dynamic-filter>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
+      <div class="py-2" *ngIf="searchResult && searchResult.length > 0" gdColumns="1fr 1fr" gdColumns.xs="1fr" gdGap="20px">
+        <ng-container *ngFor="let result of searchResult">
+          <app-search-card
+              [article]="result"
+              (openModal)="openDialog($event)"
+              (readANews)="readNews($event)">
+            ></app-search-card>
+        </ng-container>
+      </div>
+
+      <ng-container *ngIf="!searchResult || searchResult.length <= 0">
+        <app-no-data-card [data]="'search result'" (refreshComponent)="refreshComponent($event)"></app-no-data-card>
+      </ng-container>
+    </div>
+  </div>
+</div>

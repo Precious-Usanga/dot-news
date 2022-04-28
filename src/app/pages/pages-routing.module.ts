@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookmarksComponent } from './bookmarks/bookmarks.component';
-import { CategoryComponent } from './category/category.component';
-import { NewsComponent } from './news/news.component';
 import { PagesComponent } from './pages.component';
 import { SearchComponent } from './search/search.component';
 
@@ -10,26 +7,33 @@ const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    data: { breadcrumb: 'Home' },
     children: [
       {
         path: 'top-stories',
         loadChildren: () => import('./top-stories/top-stories.module').then(m => m.TopStoriesModule),
+        data: { breadcrumb: 'Top Stories' }
+
       },
       {
-        path: 'news',
-        component: NewsComponent
+        path: 'view-news',
+        loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
+        data: { breadcrumb: 'News' }
       },
       {
         path: 'category',
-        component: CategoryComponent
+        loadChildren: () => import('./category/category.module').then(m => m.CategoryModule),
+        data: { breadcrumb: 'Category' }
       },
       {
         path: 'search',
-        component: SearchComponent
+        loadChildren: () => import('./search/search.module').then(m => m.SearchModule),
+        data: { breadcrumb: 'News Search' }
       },
       {
         path: 'bookmarks',
-        component: BookmarksComponent
+        loadChildren: () => import('./bookmarks/bookmarks.module').then(m => m.BookmarksModule),
+        data: { breadcrumb: 'Bookmarks' }
       },
       {
         path: '',

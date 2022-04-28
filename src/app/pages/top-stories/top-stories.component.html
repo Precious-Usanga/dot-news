@@ -1,13 +1,13 @@
 <div class="mb-4 w-full">
   <div fxLayout="column" fxLayoutGap="15px">
-      <div fxLayout="row">
-        <h1 class="text-xl font-bold">Top Stories for you</h1>
-      </div>
+    <div fxLayout="row">
+      <h1 class="text-xl font-bold">Top Stories for you</h1>
+    </div>
 
     <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-      <mat-chip-list aria-label="Filter News">
+      <mat-chip-list aria-label="Filter News" #chipList>
         <ng-container *ngFor="let options of topStoriesFilter">
-          <mat-chip class="white" [value]="options.value" (selectionChange)="onFilterChange(options.value)" [selected]="options.selected">{{options.filter | titlecase}}</mat-chip>
+          <mat-chip [value]="options.value" [selectable]="true" (click)="chipClick(options.value)" (selectionChange)="filterNewsHeadlines($event, options.value)" color="primary">{{options.filter | titlecase}}</mat-chip>
         </ng-container>
       </mat-chip-list>
 
@@ -17,18 +17,22 @@
     </div>
 
     <div fxLayout="column" fxLayoutAlign="start" fxLayoutGap="10px">
-      <div fxFlexAlign="stretch">
+      <div fxFlex="100%" *ngIf="news && news.articles.length > 0">
         <ng-container *ngIf="leadNews">
-          <app-news-entries [cardType]="'stretched'" [news]="leadNews" ></app-news-entries>
+          <app-news-entries [cardType]="'stretched'" [news]="leadNews" (openModal)="openDialog($event)" (readANews)="readNews($event)"></app-news-entries>
         </ng-container>
 
 
-          <div class="py-4" gdColumns="1fr 1fr" gdColumns.xs="1fr" gdGap="20px">
-            <ng-container *ngFor="let news of news?.articles">
-              <app-news-entries [cardType]="'boxed'" [news]="news" ></app-news-entries>
-            </ng-container>
-          </div>
+        <div class="py-4" gdColumns.gt-xs="1fr 1fr" gdColumns="1fr" gdGap="20px">
+          <ng-container *ngFor="let news of news?.articles">
+            <app-news-entries [cardType]="'boxed'" [news]="news" (openModal)="openDialog($event)" (readANews)="readNews($event)"></app-news-entries>
+          </ng-container>
+        </div>
       </div>
+
+      <ng-container *ngIf="!news || news.articles.length <= 0">
+        <app-no-data-card [data]="'trending news'" (refreshComponent)="refreshComponent($event)"></app-no-data-card>
+      </ng-container>
 
     </div>
   </div>

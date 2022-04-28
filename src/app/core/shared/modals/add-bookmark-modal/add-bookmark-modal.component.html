@@ -18,14 +18,14 @@
 
               <mat-form-field fxFlex="grow" appearance="outline">
                 <mat-label>Title</mat-label>
-                <textarea formControlName="title" rows="2" matInput readonly required></textarea>
+                <textarea formControlName="title" rows="2" matInput></textarea>
                 <mat-error *ngIf="addToBookmarkFormData['title'].dirty && addToBookmarkFormData['title'].invalid && addToBookmarkFormData['title'].hasError('required')">Title is required</mat-error>
 
               </mat-form-field>
 
               <mat-form-field fxFlex="grow" appearance="outline">
                 <mat-label>Description</mat-label>
-                <textarea formControlName="description" rows="3" matInput readonly required></textarea>
+                <textarea formControlName="description" rows="3" matInput></textarea>
                 <mat-error *ngIf="addToBookmarkFormData['description'].dirty && addToBookmarkFormData['description'].invalid && addToBookmarkFormData['description'].hasError('required')">Description is required</mat-error>
               </mat-form-field>
 

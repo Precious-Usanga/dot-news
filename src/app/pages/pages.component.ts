@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationList } from '../core/shared/navigation';
 import { NavigationService } from '../core/shared/navigation.service';
-
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',

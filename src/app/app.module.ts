@@ -8,6 +8,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiKeyInterceptor } from './core/interceptors/api-key.interceptor';
 import { LanguageInterceptor } from './core/interceptors/language.interceptor';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { LanguageInterceptor } from './core/interceptors/language.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule,
+    NgxSpinnerModule
   ],
   providers: [
     {

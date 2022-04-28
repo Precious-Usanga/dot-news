@@ -1,0 +1,12 @@
+
+<div class="border border-solid border-secondary p-8 rounded-lg">
+    <div class="pt-24 pb-20" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-icon [icIcon]="icRestorePage" class="text-gray-light" [inline]="true" size="150px"></mat-icon>
+
+        <p class="text-secondary">Ooops... No {{ data | titlecase }} available for display</p>
+
+        <button  (click)="refresh(true)" mat-button color="primary" type="button">
+            Refresh
+        </button>
+    </div>
+</div>
